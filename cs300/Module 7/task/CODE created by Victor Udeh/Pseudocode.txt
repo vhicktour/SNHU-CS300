@@ -1,0 +1,63 @@
+// Code created by Victor Udeh
+// SNHU-CS300 Final project
+// Feb 25, 2024
+
+// Define Course class with courseNumber, title, and prerequisites
+Class Course
+    Properties:
+        courseNumber: String
+        title: String
+        prerequisites: List of String
+
+// Function to load courses from a file
+Function loadCoursesFromFile(fileName: String) -> List of Course
+    Initialize courses as an empty list of Course
+    Open file with fileName
+    For each line in file
+        Parse line to extract courseNumber, title, and prerequisites
+        Create a Course object and add it to courses
+    End For
+    Return courses
+
+// Function to print all courses
+Function printCourses(courses: List of Course)
+    For each course in courses
+        Print courseNumber and title
+    End For
+
+// Function to print information about a specific course
+Function printCourseInfo(courses: List of Course, courseNumber: String)
+    For each course in courses
+        If course's courseNumber matches input courseNumber
+            Print course title and prerequisites
+        End If
+    End For
+
+// Main program
+Main Program
+    Declare courses as List of Course
+    Repeat
+        Display menu with options: 1) Load Data, 2) Print Course List, 3) Print Course, 4) Exit
+        Get user's choice
+        If choice is 1
+            Prompt for fileName and call loadCoursesFromFile
+        Else If choice is 2
+            Call printCourses
+        Else If choice is 3
+            Prompt for courseNumber and call printCourseInfo
+        End If
+    Until choice is Exit
+End Main Program
+
+
+
+//Program input:
+
+MATH201,Discrete Mathematics
+CSCI300,Introduction to Algorithms,CSCI200,MATH201
+CSCI350,Operating Systems,CSCI300
+CSCI101,Introduction to Programming in C++,CSCI100
+CSCI100,Introduction to Computer Science
+CSCI301,Advanced Programming in C++,CSCI101
+CSCI400,Large Software Development,CSCI301,CSCI350
+CSCI200,Data Structures,CSCI101
